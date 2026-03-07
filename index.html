@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GrowTech Music Player</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="player-container">
+
+        <!-- Album Art -->
+        <div class="album-art">
+            <img id="cover" src="assets/covers/Best-Album-Covers.jpg" alt="Album Cover">
+        </div>
+
+        <!-- Song Info -->
+        <div class="song-info">
+            <h2 id="title">Song Title</h2>
+            <p id="artist">Artist Name</p>
+        </div>
+
+        <!-- Progress Bar -->
+         <div class="progress-container" id="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+         </div>
+         <div class="time-info">
+            <span id="current-time">0:00</span>
+            <span id="duration">0:00</span>
+         </div>
+
+        <!-- Playback Controls -->
+         <div class="controls">
+            <button id="prev-btn" class="control-btn play-btn">
+                <i class="fas fa-backward"></i>
+            </button>
+            <button id="play-btn" class="control-btn play-btn">
+                <i class="fas fa-play" id="play-icon"></i>
+            </button>
+            <button id="next-btn" class="control-btn">
+                <i class="fas fa-forward"></i>
+            </button>
+         </div>
+
+        <!-- Volume Control -->
+            <div class="volume-container">
+                <i class="fas fa-volume-down" id="volume-icon"></i>
+                <input type="range" id="volume-slider" min="0" max="100" value="50">
+                <span id="volume-display">50</span>
+                <i class="fas fa-volume-up" id="volume-icon"></i>
+            </div>
+
+        <!-- Playlist Section -->
+            <div class="playlist-container">
+                <h3>Playlist</h3>
+                <ul id="playlist" class="playlist"></ul>
+            </div>
+    </div>
+
+    <audio id="audio"></audio>
+    <script src="js/script.js"></script>
+</body>
+</html>
