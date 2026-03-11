@@ -17,6 +17,7 @@ const playlistEl = document.getElementById('playlist');
 const volumeDisplay = document.getElementById('volume-display');
 const sidebarToggle = document.getElementById('sidebar-toggle');
 const sidebar = document.getElementById('sidebar');
+const sidebarClose = document.getElementById('sidebar-close');
 
 // ======== Songs Array ==========================
 const songs = [
@@ -254,5 +255,20 @@ init();
 if (sidebarToggle && sidebar) {
     sidebarToggle.addEventListener('click', () => {
         sidebar.classList.toggle('active');
+        // Show close button only on mobile
+        if (sidebarClose) {
+            if (window.innerWidth <= 600) {
+                sidebarClose.style.display = 'block';
+            } else {
+                sidebarClose.style.display = 'none';
+            }
+        }
+    });
+}
+
+if (sidebarClose && sidebar) {
+    sidebarClose.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        sidebarClose.style.display = 'none';
     });
 }
