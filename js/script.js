@@ -15,6 +15,8 @@ const volumeSlider = document.getElementById('volume-slider');
 const volumeIcon = document.getElementById('volume-icon');
 const playlistEl = document.getElementById('playlist');
 const volumeDisplay = document.getElementById('volume-display');
+const sidebarToggle = document.getElementById('sidebar-toggle');
+const sidebar = document.getElementById('sidebar');
 
 // ======== Songs Array ==========================
 const songs = [
@@ -190,6 +192,10 @@ function renderPlaylist() {
             currentSongIndex = index;
             loadSong(currentSongIndex);
             playSong();
+            // Close sidebar after click
+            if (sidebar) {
+                sidebar.classList.remove('active');
+            }
         });
         playlistEl.appendChild(li);
     });
@@ -198,6 +204,8 @@ function renderPlaylist() {
 
 function updatePlaylistActive() {
     const items = playlistEl.querySelectorAll('li');
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    const sidebar = document.getElementById('sidebar');
     items.forEach((item, index) => {
         item.classList.toggle('active', index === currentSongIndex);
     });
@@ -241,3 +249,10 @@ document.addEventListener('keydown', handleKeyboard);
 
 // ====== Start ======
 init();
+
+// Sidebar toggle functionality
+if (sidebarToggle && sidebar) {
+    sidebarToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('active');
+    });
+}
